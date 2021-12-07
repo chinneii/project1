@@ -42,7 +42,7 @@ function search() {
     let poiAddress = data.results[0].formatted;
     let poiAddressLat = lat;
     let poiAddressLng = lng;
-    let poiCoordinate = [poiAddressLng, poiAddressLat];
+    //let poiCoordinate = [poiAddressLng, poiAddressLat];
   
     let poiLocation = new Point(poiAddressLat,poiAddressLng,poiAddressName);
     tempArraySearch.push(poiLocation)
@@ -81,7 +81,7 @@ function search() {
   function newPOI2() {
     //let coordinate = tempArraySearch[tempArraySearch.length - 1].locationCoordinate
     let marker = new mapboxgl.Marker()
-    marker.setLngLat(tempArraySearch.poiAddressLat,tempArraySearch.poiAddressLng)
+    marker.setLngLat(tempArraySearch[tempArraySearch.length - 1].latitude,tempArraySearch[tempArraySearch.length - 1].longitude)
     marker.addTo(map)
     let popup = new mapboxgl.Popup({ offset: 45 });
     plannedLocations.push(tempArraySearch[tempArraySearch.length - 1])
@@ -137,3 +137,4 @@ function cancelPlan() {
       window.location = "list.html"
     }
   }
+

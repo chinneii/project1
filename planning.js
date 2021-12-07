@@ -79,14 +79,14 @@ function search() {
   }
 
   function newPOI2() {
-    let coordinate = tempArraySearch[tempArraySearch.length - 1].locationCoordinate
+    //let coordinate = tempArraySearch[tempArraySearch.length - 1].locationCoordinate
     let marker = new mapboxgl.Marker()
-    marker.setLngLat(coordinate)
+    marker.setLngLat(tempArraySearch.poiAddressLat,tempArraySearch.poiAddressLng)
     marker.addTo(map)
     let popup = new mapboxgl.Popup({ offset: 45 });
     plannedLocations.push(tempArraySearch[tempArraySearch.length - 1])
   
-    popup.setHTML(`Name: ${tempArraySearch[tempArraySearch.length - 1].locationName}<br> Address: ${tempArraySearch[tempArraySearch.length - 1].locationAddress}`)
+    popup.setHTML(`Name: ${tempArraySearch[tempArraySearch.length - 1].name}`)
     marker.setPopup(popup);
     temparray = [];
     tempArraySearch = [];
@@ -133,7 +133,7 @@ function cancelPlan() {
     if (confirm(`Clicking this will save your planned location and direct you to List of Planned Vacation page. Are you sure you want to save and continue? `)) {
       plannedVacation.allPlan.push(vacation)
       console.log(plannedVacation)
-      updateLSData(SAVED_VACATION_KEY, plannedVacation)
+      updateLSData(KEY, plannedVacation)
       dialog2.close()
       window.location = "list.html"
     }

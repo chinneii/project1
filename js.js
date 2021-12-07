@@ -11,7 +11,6 @@ class Point {
 accuracy = 0.001;
 plannedLocations = [];
 
-
 var x = document.getElementById("spot");
 
 function getLocation() {

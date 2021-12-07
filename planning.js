@@ -65,7 +65,7 @@ function search() {
           <th>POI address</th>
           <th>Actions</th>
           </tr> `;
-    for (let i = 1; i < vacation.route.length; i++) {
+    for (let i = 1; i < plannedLocations.length; i++) {
       itemTable += "<tr>";
       itemTable += `<td>${i}</td>
               <td>${plannedLocations[i].name}</td>
@@ -104,8 +104,7 @@ let deleteIndex = 0
  */
 function deletePOI(index) {
   deleteIndex = index
-  vacation.route.splice(index, 1);
-  vacation.distanceEachLeg = []
+  plannedLocations.splice(index, 1);
   displayTable()
 }
 
@@ -118,7 +117,7 @@ function cancelPlan() {
 
 
   function confirmSaveVacation() {
-    if (vacation.route.length == 1) {
+    if (plannedLocations.length == 1) {
       alert('Your POI list is empty. Please click cancel and add at least one POI to the list.')
       return
     } 

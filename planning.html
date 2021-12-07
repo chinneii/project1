@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-purple.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="https://eng1003.monash/libs/services.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    #map {
+      height: 450px;
+      width: 450px
+    }
+  </style>
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+  <title>Getaway Bloom</title>
+</head>
+
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span>
+          <img src="img/logo.png" width="50" height="50"></span>
+        <strong><i> Getaway Bloom</i></strong>
+        <div class="mdl-layout-spacer"></div>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title"></span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="home.html">Home page</a>
+        <a class="mdl-navigation__link" href="list.html">List of planned vacation</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <!--content -->
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+            <div>
+              <input type="text" id="searchAddress" placeholder="Search for a POI">
+              <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="search()">
+                <i class="material-icons">search</i>
+              </button>
+              <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+                onclick="newPOI2()">
+                <i class="material-icons">add</i>
+              </button>
+            </div>
+          </div>
+          <br>
+          <div id="map"></div>
+          <div class="mdl-cell mdl-cell--4-col">
+            <h4>List of locations</h4>
+            <ul class="poilist" id="PoiList">
+            </ul>
+
+           
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+              onclick="saveVacation()">Confirm and save</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+              style=background-color:red onclick="cancelPlan()">Cancel </button>
+          </div>
+
+          <!--dialog to enter name and date-->
+          <dialog class="mdl-dialog" id="addDialog2">
+            <h5 class="mdl-dialog__title">Enter date</h5>
+            <div class="mdl-dialog__content">
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
+                    <input class="mdl-textfield__input" type="date" id="vacationDate" required>
+                    <label class="mdl-textfield__label" for="newPOIIndex">date:</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-dialog__actions">
+              <button type="button" class="mdl-button" onclick="confirmSaveVacation()">Save</button>
+              <button type="button" class="mdl-button close" onclick="cancelSaveVacation()">Cancel</button>
+            </div>
+          </dialog>
+          <script src="js/shared.js"></script>
+          <script src="js/start.js"></script>
+          <script src="js/planning.js"></script>
+        </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  </main>
+  </div>
+</body>
+
+</html>

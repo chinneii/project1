@@ -1,4 +1,4 @@
-accuracy = 10;
+accuracy = 0.01;
 let plannedLocations = [];
 let data;
 

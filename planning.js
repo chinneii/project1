@@ -70,9 +70,9 @@ function displayTable() {
           <th>POI address</th>
           <th>Actions</th>
           </tr> `;
-    for (let i = 1; i < plannedLocations.length; i++) {
+    for (let i = 0; i < plannedLocations.length; i++) {
         itemTable += "<tr>";
-        itemTable += `<td>${i}</td>
+        itemTable += `<td>${i+1}</td>
               <td>${plannedLocations[i].name}</td>
               <td> <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick=deletePOI(${i})>  <i class="material-icons">delete</i> </button>
                </td>
@@ -82,17 +82,9 @@ function displayTable() {
     display += `${itemTable}`;
     poiListRef.innerHTML = display;
 }
-
+let plannedLocations=[]
 function newPOI2() {
-    //let coordinate = tempArraySearch[tempArraySearch.length - 1].locationCoordinate
-    let marker = new mapboxgl.Marker()
-    marker.setLngLat(tempArraySearch[tempArraySearch.length - 1].latitude, tempArraySearch[tempArraySearch.length - 1].longitude)
-    marker.addTo(map)
-    let popup = new mapboxgl.Popup({ offset: 45 });
     plannedLocations.push(tempArraySearch[tempArraySearch.length - 1])
-
-    popup.setHTML(`Name: ${tempArraySearch[tempArraySearch.length - 1].name}`)
-    marker.setPopup(popup);
     temparray = [];
     tempArraySearch = [];
     displayTable();
@@ -100,13 +92,6 @@ function newPOI2() {
 
 //delete poi
 let deleteIndex = 0
-
-/**
- * deletePOI function
- * runs when the user clicks the delete icon
- * use to remove POI from the list 
- * @param {*} index 
- */
 function deletePOI(index) {
     deleteIndex = index
     plannedLocations.splice(index, 1);
@@ -147,10 +132,6 @@ if (!dialog2.showModal) {
     dialogPolyfill.registerDialog(dialog2);
 }
 
-/**
- * saveVacation function 
- * shows dialog for user to input starting date and vacation name
- */
 function saveVacation() {
     dialog2.showModal();
 }

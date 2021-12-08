@@ -73,7 +73,7 @@ function displayTable() {
     for (let i = 0; i < plannedLocations.length; i++) {
         itemTable += "<tr>";
         itemTable += `<td>${i+1}</td>
-              <td>${plannedLocations[i].name}</td>
+              <td>${plannedLocations[i]._name}</td>
               <td> <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick=deletePOI(${i})>  <i class="material-icons">delete</i> </button>
                </td>
               </tr>`

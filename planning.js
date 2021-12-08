@@ -2,13 +2,10 @@ const MAPBOX_KEY = "pk.eyJ1IjoiZmx1b3J5eW54IiwiYSI6ImNrdGQ3cTk4MDI2ZXIydnBjcGN6d
 const OPENCAGE_KEY = "88e2b03df71b4f9b85c4f9e549503b1e";
 
 mapboxgl.accessToken = MAPBOX_KEY;
-SAVED_LOCATIONS_KEY="dhbiwjngmokbl"
+//const SAVED_LOCATIONS_KEY="dhbiwjngmokbl";
 
-marker = new mapboxgl.Marker({
-    draggable: true
-})
+marker = new mapboxgl.Marker;
 
-let savedLocation=new PlannedTrip()
 if (checkLSData(SAVED_LOCATIONS_KEY)) {
     let data = retrieveLSData(SAVED_LOCATIONS_KEY);
     savedLocation=new PlannedTrip()
@@ -137,14 +134,18 @@ if (!dialog2.showModal) {
     } 
     let vacationDateRef = document.getElementById("vacationDate");
     let vacationDate = vacationDateRef.value;
-  
+  console.log(vacationDate)
    // vacation.vacationDate = vacationDate;
     if(vacationDate==""){
       alert('date must be filled in')
       return
     }
     if (confirm(`Clicking this will save your planned location and direct you to List of Planned Vacation page. Are you sure you want to save and continue? `)) {
-      savedLocation.trip.push(plannedLocations)
+   
+for (let i in plannedLocations){
+    plannedLocations[i].date=vacationDate
+}
+savedLocation.trip.push(plannedLocations)
     updateLSData(SAVED_LOCATIONS_KEY, savedLocation)
       dialog2.close()
       window.location = "list.html"
@@ -152,6 +153,6 @@ if (!dialog2.showModal) {
   }
 
   function cancelSaveVacation() {
-    dialog2.close()
+    dialog2.close();
   }
   

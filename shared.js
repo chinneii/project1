@@ -1,13 +1,14 @@
 // Storage Keys
 const LISTKEY = "plannedlist"
-
+const SAVED_LOCATIONS_KEY="dhbiwjngmokbl";
 
 //Class for all the points saved for the location
 class Point {
-    constructor(longitude = '', latitude = '', name = '') {
+    constructor(longitude = '', latitude = '', name = '',date='') {
         this._name = name;
         this._longitude = longitude;
         this._latitude = latitude;
+        this._date=date
 
     }
     get name() {
@@ -19,6 +20,9 @@ class Point {
     get latitude() {
         return this._latitude;
     }
+    get date(){
+        return this._date
+    }
     set name(name) {
         this._name = name;
     }
@@ -28,11 +32,15 @@ class Point {
     set latitude(latitude) {
         this._latitude = latitude;
     }
+    set date(newDate){
+        this._date=newDate;
+    }
 
     fromData(data) {
         this._name = data.name;
         this._longitude = data.longitude;
         this._latitude = data.latitude;
+        this._date=data.date;
     }
 }
 
@@ -54,6 +62,8 @@ class PlannedTrip {
         }
     }
 }
+
+let savedLocation=new PlannedTrip();
 /**
  * checkLSData function
  * Used to check if any data in LS exists at a specific key

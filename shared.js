@@ -70,6 +70,7 @@ let savedLocation=new PlannedTrip();
  * @param {string} key LS Key to be used
  * @returns true or false representing if data exists at key in LS
  */
+
 function checkLSData(key) {
     if (localStorage.getItem(key) != null) {
         return true;
@@ -83,6 +84,7 @@ function checkLSData(key) {
  * @param {string} key LS Key to be used
  * @returns data from LS in JS format
  */
+
 function retrieveLSData(key) {
     let data = localStorage.getItem(key);
     try {
@@ -98,6 +100,7 @@ function retrieveLSData(key) {
  * @param {string} key LS key to be used
  * @param {any} data data to be stored
  */
+
 function updateLSData(key, data) {
     let json = JSON.stringify(data);
     localStorage.setItem(key, json);

@@ -9,7 +9,7 @@ function pageLoad() {
 
         let display2 = "";
         let itemTable2 = `
-              <table class="mdl-data-table mdl-js-data-table" style=width:200px>
+              <table class="locationsTable" style=width:200px>
               <tr>
               <th>No.</th>
               <th>Name of location</th>
@@ -19,7 +19,7 @@ function pageLoad() {
             itemTable2 += "<tr>";
             itemTable2 += `<td>${j+1}</td>
                   <td>${savedLocation._trip[i][j]._name}</td>
-                  <td>  yes/no
+                  <td id="checkin${j}"> 
                    </td>
                   </tr>`
         }

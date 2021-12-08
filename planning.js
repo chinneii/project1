@@ -65,9 +65,9 @@ function search() {
           <th>POI address</th>
           <th>Actions</th>
           </tr> `;
-    for (let i = 1; i < plannedLocations.length; i++) {
+    for (let i = 0; i < plannedLocations.length; i++) {
       itemTable += "<tr>";
-      itemTable += `<td>${i}</td>
+      itemTable += `<td>${i+1}</td>
               <td>${plannedLocations[i].name}</td>
               <td> <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick=deletePOI(${i})>  <i class="material-icons">delete</i> </button>
                </td>
@@ -78,16 +78,9 @@ function search() {
     poiListRef.innerHTML = display;
   }
 
+  let plannedLocations=[]
   function newPOI2() {
-    //let coordinate = tempArraySearch[tempArraySearch.length - 1].locationCoordinate
-    let marker = new mapboxgl.Marker()
-    marker.setLngLat(tempArraySearch[tempArraySearch.length - 1].latitude,tempArraySearch[tempArraySearch.length - 1].longitude)
-    marker.addTo(map)
-    let popup = new mapboxgl.Popup({ offset: 45 });
     plannedLocations.push(tempArraySearch[tempArraySearch.length - 1])
-  
-    popup.setHTML(`Name: ${tempArraySearch[tempArraySearch.length - 1].name}`)
-    marker.setPopup(popup);
     temparray = [];
     tempArraySearch = [];
     displayTable();
@@ -116,6 +109,21 @@ function cancelPlan() {
   }
 
 
+let dialog2 = document.getElementById("addDialog2");
+if (!dialog2.showModal) {
+  dialogPolyfill.registerDialog(dialog2);
+}
+
+/**
+ * saveVacation function 
+ * shows dialog for user to input starting date and vacation name
+ */
+ function saveVacation() {
+    dialog2.showModal();
+  }
+
+  
+  savedLocation=new PlannedTrip()
   function confirmSaveVacation() {
     if (plannedLocations.length == 1) {
       alert('Your POI list is empty. Please click cancel and add at least one POI to the list.')
@@ -124,15 +132,14 @@ function cancelPlan() {
     let vacationDateRef = document.getElementById("vacationDate");
     let vacationDate = vacationDateRef.value;
   
-    vacation.vacationDate = vacationDate;
-    if(vacation.vacationDate==""){
+   // vacation.vacationDate = vacationDate;
+    if(vacationDate==""){
       alert('date must be filled in')
       return
     }
     if (confirm(`Clicking this will save your planned location and direct you to List of Planned Vacation page. Are you sure you want to save and continue? `)) {
-      plannedVacation.allPlan.push(vacation)
-      console.log(plannedVacation)
-      updateLSData(KEY, plannedVacation)
+      savedLocation.trip.push(vacation)
+    //  updateLSData(KEY, plannedVacation)
       dialog2.close()
       window.location = "list.html"
     }

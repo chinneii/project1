@@ -1,15 +1,5 @@
-//Class for all the points saved for the location
-//class Point {
-//    constructor(longitude, latitude, name) {
-//        this._name = name;
-//        this._longitude = longitude;
-//        this._latitude = latitude;
-//
-//    }
-//}
 
 accuracy = 0.001;
-//let plannedLocations = [];
 
 var x = document.getElementById("spot");
 

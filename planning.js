@@ -2,10 +2,18 @@ const MAPBOX_KEY = "pk.eyJ1IjoiZmx1b3J5eW54IiwiYSI6ImNrdGQ3cTk4MDI2ZXIydnBjcGN6d
 const OPENCAGE_KEY = "88e2b03df71b4f9b85c4f9e549503b1e";
 
 mapboxgl.accessToken = MAPBOX_KEY;
+SAVED_LOCATIONS_KEY = "dhbiwjngmokbl"
 
 marker = new mapboxgl.Marker({
     draggable: true
 })
+
+let savedLocation = new PlannedTrip()
+if (checkLSData(SAVED_LOCATIONS_KEY)) {
+    let data = retrieveLSData(SAVED_LOCATIONS_KEY);
+    savedLocation = new PlannedTrip()
+    savedLocation.fromData(data);
+}
 
 //display map
 map = new mapboxgl.Map({
@@ -136,4 +144,41 @@ function confirmSaveVacation() {
         dialog2.close()
         window.location = "list.html"
     }
+}
+let dialog2 = document.getElementById("addDialog2");
+if (!dialog2.showModal) {
+    dialogPolyfill.registerDialog(dialog2);
+}
+
+/**
+ * saveVacation function 
+ * shows dialog for user to input starting date and vacation name
+ */
+function saveVacation() {
+    dialog2.showModal();
+}
+
+function confirmSaveVacation() {
+    if (plannedLocations.length == 0) {
+        alert('Your POI list is empty. Please click cancel and add at least one POI to the list.')
+        return
+    }
+    let vacationDateRef = document.getElementById("vacationDate");
+    let vacationDate = vacationDateRef.value;
+
+    // vacation.vacationDate = vacationDate;
+    if (vacationDate == "") {
+        alert('date must be filled in')
+        return
+    }
+    if (confirm(`Clicking this will save your planned location and direct you to List of Planned Vacation page. Are you sure you want to save and continue? `)) {
+        savedLocation.trip.push(plannedLocations)
+        updateLSData(SAVED_LOCATIONS_KEY, savedLocation)
+        dialog2.close()
+        window.location = "list.html"
+    }
+}
+
+function cancelSaveVacation() {
+    dialog2.close()
 }

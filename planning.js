@@ -45,11 +45,10 @@ function showLngLat(data) {
     let poiType = data.results[0].components._type;
     let poiAddressName = data.results[0].components[poiType];
     let poiAddress = data.results[0].formatted;
-    let poiAddressLat = lat;
-    let poiAddressLng = lng;
+
     //let poiCoordinate = [poiAddressLng, poiAddressLat];
 
-    let poiLocation = new Point(poiAddressLat, poiAddressLng, poiAddressName);
+    let poiLocation = new Point(lng, lat, poiAddressName);
     tempArraySearch.push(poiLocation)
 
     let popup = new mapboxgl.Popup({ offset: 45 });
@@ -82,7 +81,8 @@ function displayTable() {
     display += `${itemTable}`;
     poiListRef.innerHTML = display;
 }
-let plannedLocations=[]
+let plannedLocations = []
+
 function newPOI2() {
     plannedLocations.push(tempArraySearch[tempArraySearch.length - 1])
     temparray = [];
@@ -92,6 +92,7 @@ function newPOI2() {
 
 //delete poi
 let deleteIndex = 0
+
 function deletePOI(index) {
     deleteIndex = index
     plannedLocations.splice(index, 1);
@@ -143,25 +144,24 @@ function confirmSaveVacation() {
     }
     let vacationDateRef = document.getElementById("vacationDate");
     let vacationDate = vacationDateRef.value;
-  console.log(vacationDate)
-   // vacation.vacationDate = vacationDate;
-    if(vacationDate==""){
-      alert('date must be filled in')
-      return
+    console.log(vacationDate)
+        // vacation.vacationDate = vacationDate;
+    if (vacationDate == "") {
+        alert('date must be filled in')
+        return
     }
     if (confirm(`Clicking this will save your planned location and direct you to List of Planned Vacation page. Are you sure you want to save and continue? `)) {
-   
-for (let i in plannedLocations){
-    plannedLocations[i].date=vacationDate
-}
-savedLocation.trip.push(plannedLocations)
-    updateLSData(SAVED_LOCATIONS_KEY, savedLocation)
-      dialog2.close()
-      window.location = "list.html"
+
+        for (let i in plannedLocations) {
+            plannedLocations[i].date = vacationDate
+        }
+        savedLocation.trip.push(plannedLocations)
+        updateLSData(SAVED_LOCATIONS_KEY, savedLocation)
+        dialog2.close()
+        window.location = "list.html"
     }
 }
 
-  function cancelSaveVacation() {
+function cancelSaveVacation() {
     dialog2.close();
-  }
-  
+}

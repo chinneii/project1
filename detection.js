@@ -1,4 +1,4 @@
-accuracy = 0.001;
+accuracy = 0.01;
 let plannedLocations = [];
 let data;
 
@@ -8,8 +8,6 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(checker);
 }
 let interval = setInterval(getLocation, 5000);
-let x = document.getElementById("spot");
-let y = document.getElementById("spot1")
 
 function checker(position) {
     let long = position.coords.longitude;
@@ -17,19 +15,16 @@ function checker(position) {
     console.log(long)
     console.log(lat)
     let time = new Date(position.timestamp)
-    x.innerHTML = `${long},${lat},${time}`
 
-    for (let i in plannedLocations) {
-        let longCheck = Math.abs(long - plannedLocations[i].long);
-        let latCheck = Math.abs(lat - plannedLocations[i].lat);
 
+    for (let i = 0; i < savedLocation._trip[0].length; i++) {
+        let longCheck = Math.abs(long - savedLocation._trip[0][i]._longitude);
+        let latCheck = Math.abs(lat - savedLocation._trip[0][i]._latitude);
+        console.log(longCheck)
         if (longCheck < accuracy && latCheck < accuracy) {
-            console.log(1)
-            alert(`user has checked into ${plannedLocations[i].name} at ${time}`)
-            plannedLocations.splice(i, 1)
-        } else {
-            console.log(2)
-            y.innerHTML = `No marked destinations reached`
+            //change here for the id shit and stuff
+            alert(`user has checked into ${savedLocation._trip[0][i].name} at ${time}`)
+            savedLocation._trip.splice(i, 1)
         }
     }
 }

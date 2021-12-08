@@ -25,7 +25,7 @@ function checker(position) {
         if (longCheck < accuracy && latCheck < accuracy) {
             //change here for the id shit and stuff
             //alert(`user has checked into ${savedLocation._trip[0][i].name} at ${time}`)
-        checkedIn.innerHTML=`user has checked into ${savedLocation._trip[0][i]._name} at ${time}`
+        checkedIn.innerHTML=`<font  color="green"> user has checked into ${savedLocation._trip[0][i]._name} at ${time} </font>`
             savedLocation._trip.splice(i, 1)
         }
     }

@@ -9,7 +9,7 @@ class Point {
 }
 
 accuracy = 0.001;
-plannedLocations = [];
+//let plannedLocations = [];
 
 var x = document.getElementById("spot");
 

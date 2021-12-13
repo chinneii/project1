@@ -13,12 +13,17 @@ function pageLoad() {
               <tr>
               <th>No.</th>
               <th>Name of location</th>
+              <th>Latitude</th>
+              <th>Longitude</th>
               <th>Checked in? </th>
               </tr> `;
         for (let j = 0; j < savedLocation._trip[i].length; j++) {
             itemTable2 += "<tr>";
             itemTable2 += `<td>${j+1}</td>
                   <td>${savedLocation._trip[i][j]._name}</td>
+                  <td>${savedLocation._trip[i][j]._latitude}</td>
+                  <td>${savedLocation._trip[i][j]._longitude}</td>
+                  <td></td>
                   <td id="checkin${j}"> 
                    </td>
                   </tr>`

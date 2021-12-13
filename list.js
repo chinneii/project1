@@ -1,4 +1,5 @@
-
+const MAPBOX_KEY = "pk.eyJ1IjoiZmx1b3J5eW54IiwiYSI6ImNrdGQ3cTk4MDI2ZXIydnBjcGN6dmd6czMifQ.BkiIeD2HP_SDraF8qMy3qQ";
+const OPENCAGE_KEY = "88e2b03df71b4f9b85c4f9e549503b1e";
 savedLocation = retrieveLSData(SAVED_LOCATIONS_KEY);
 
 
@@ -28,7 +29,7 @@ function pageLoad() {
 
 		vacationListInnerHTML += `
 		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone" >
-								<h5>Plan ${Number(i) + 1} </h5>
+								<h5>Current location: ${currentAddress} </h5>
 								<div class="mdl-card">
 									<div class="mdl-card__supporting-text">
 										<b>Date: ${savedLocation._trip[i][i]._date}
@@ -39,7 +40,9 @@ function pageLoad() {
 								</div>
 							</div>	`
 	}
+   // console.log(currentAddress)
 	vacationList.innerHTML = vacationListInnerHTML;
+    
 }
 
 pageLoad();

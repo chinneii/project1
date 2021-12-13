@@ -1,7 +1,7 @@
 // Storage Keys
 const LISTKEY = "plannedlist"
 const SAVED_LOCATIONS_KEY="dhbiwjngmokbl";
-
+const CURRENT_ADDRESS_KEY="gvubhijnk";
 //Class for all the points saved for the location
 class Point {
     constructor(longitude = '', latitude = '', name = '',date='') {

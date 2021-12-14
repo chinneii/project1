@@ -44,7 +44,6 @@ function pageLoad() {
 								</div>
 							</div>	`
 	}
-   // console.log(currentAddress)
 	vacationList.innerHTML = vacationListInnerHTML;
 }
 

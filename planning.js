@@ -12,7 +12,6 @@ if (checkLSData(SAVED_LOCATIONS_KEY)) {
     savedLocation.fromData(data);
 }
 
-//display map
 map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',

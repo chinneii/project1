@@ -1,14 +1,14 @@
 // Storage Keys
 const LISTKEY = "plannedlist"
-const SAVED_LOCATIONS_KEY="dhbiwjngmokbl";
-const CURRENT_ADDRESS_KEY="gvubhijnk";
+const SAVED_LOCATIONS_KEY = "dhbiwjngmokbl";
+
 //Class for all the points saved for the location
 class Point {
-    constructor(longitude = '', latitude = '', name = '',date='') {
+    constructor(longitude = '', latitude = '', name = '', date = '') {
         this._name = name;
         this._longitude = longitude;
         this._latitude = latitude;
-        this._date=date
+        this._date = date
 
     }
     get name() {
@@ -20,7 +20,7 @@ class Point {
     get latitude() {
         return this._latitude;
     }
-    get date(){
+    get date() {
         return this._date
     }
     set name(name) {
@@ -32,15 +32,15 @@ class Point {
     set latitude(latitude) {
         this._latitude = latitude;
     }
-    set date(newDate){
-        this._date=newDate;
+    set date(newDate) {
+        this._date = newDate;
     }
 
     fromData(data) {
         this._name = data.name;
         this._longitude = data.longitude;
         this._latitude = data.latitude;
-        this._date=data.date;
+        this._date = data.date;
     }
 }
 
@@ -63,7 +63,7 @@ class PlannedTrip {
     }
 }
 
-let savedLocation=new PlannedTrip();
+let savedLocation = new PlannedTrip();
 /**
  * checkLSData function
  * Used to check if any data in LS exists at a specific key
@@ -104,4 +104,40 @@ function retrieveLSData(key) {
 function updateLSData(key, data) {
     let json = JSON.stringify(data);
     localStorage.setItem(key, json);
+}
+
+class Profile {
+    constructor(name = "", age = "", id = "") {
+        this._name = name;
+        this._age = age;
+        this._id = id;
+    }
+    get name() {
+        return this._name;
+    }
+    get age() {
+        return this._age;
+    }
+    get id() {
+        return this._id;
+    }
+    set name(newName) {
+        if (typeof newName == 'String') {
+            this._name = newName;
+        }
+    }
+    set age(newAge) {
+        if (typeof newAge == 'number') {
+            this._age = newAge;
+        }
+    }
+    set id(newId) {
+        this._id = newId
+    }
+    fromData(data) {
+        this._id = data._id;
+        this._name = data._name;
+        this._age = data._age;
+    }
+
 }

@@ -1,6 +1,6 @@
 const MAPBOX_KEY = "pk.eyJ1IjoiZmx1b3J5eW54IiwiYSI6ImNrdGQ3cTk4MDI2ZXIydnBjcGN6dmd6czMifQ.BkiIeD2HP_SDraF8qMy3qQ";
 const OPENCAGE_KEY = "88e2b03df71b4f9b85c4f9e549503b1e";
-
+let user = new Profile("chin", 19, 1)
 mapboxgl.accessToken = MAPBOX_KEY;
 //const SAVED_LOCATIONS_KEY="dhbiwjngmokbl";
 

@@ -37,8 +37,7 @@ function pageLoad() {
 
         vacationListInnerHTML += `
 		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone" >
-								<h5>Plan</h5>
-                                <h5>Current location: ${currentAddress2} </h5>
+								<h5>Current location: ${currentAddress2} </h5>
 								<div class="mdl-card">
 									<div class="mdl-card__supporting-text">
 										<b>Date: ${savedLocation._trip[i][i]._date}
@@ -48,8 +47,14 @@ function pageLoad() {
 									</div>
 								</div>
 							</div>	`
+
+
+
+
     }
     vacationList.innerHTML = vacationListInnerHTML;
+
 }
+
 
 pageLoad();

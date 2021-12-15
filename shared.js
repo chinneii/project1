@@ -105,3 +105,39 @@ function updateLSData(key, data) {
     let json = JSON.stringify(data);
     localStorage.setItem(key, json);
 }
+
+class Profile {
+    constructor(name = "", age = "", id = "") {
+        this._name = name;
+        this._age = age;
+        this._id = id;
+    }
+    get name() {
+        return this._name;
+    }
+    get age() {
+        return this._age;
+    }
+    get id() {
+        return this._id;
+    }
+    set name(newName) {
+        if (typeof newName == 'String') {
+            this._name = newName;
+        }
+    }
+    set age(newAge) {
+        if (typeof newAge == 'number') {
+            this._age = newAge;
+        }
+    }
+    set id(newId) {
+        this._id = newId
+    }
+    fromData(data) {
+        this._id = data._id;
+        this._name = data._name;
+        this._age = data._age;
+    }
+
+}

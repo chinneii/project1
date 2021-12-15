@@ -3,7 +3,13 @@ const OPENCAGE_KEY = "88e2b03df71b4f9b85c4f9e549503b1e";
 savedLocation = retrieveLSData(SAVED_LOCATIONS_KEY);
 
 let currentAddress2 = retrieveLSData(CURRENT_ADDRESS_KEY);
+let displayedUsername=document.getElementById("usernameDisplay");
 
+function displayUsername(){
+    let userIndex = localStorage.getItem(USER_INDEX_KEY);
+    let username = userList.getUser(userIndex).username
+    displayedUsername.innerHTML = `<strong>You are currently logged in as ${username}</strong>`
+}
 function pageLoad() {
     let vacationList = document.getElementById("vacationList");
     let vacationListInnerHTML = "";

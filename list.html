@@ -51,7 +51,7 @@
     </style>
 </head>
 
-<body>
+<body onload="displayUsername()">
     <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
@@ -67,12 +67,15 @@
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="home.html">Home page</a>
                 <a class="mdl-navigation__link" href="list.html">List of planned locations</a>
+                <a class="mdl-navigation__link" href="login.html">log out<a>
             </nav>
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                        <h5 id="usernameDisplay"></h5>
+                        <br>
                         <h4>List of all planned locations</h4>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">

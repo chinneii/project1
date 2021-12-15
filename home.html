@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-purple.min.css" />
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="config.js"></script>
+    <script src="shared.js"></script>
     <script src="https://eng1003.monash/libs/services.js"></script>
     <title>schedule-tera</title>
     <style>
@@ -23,7 +23,7 @@
     <title>schedule-tera</title>
 </head>
 
-<body>
+<body onload="welcomeUser()">
     <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
@@ -39,6 +39,7 @@
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="home.html">Home page</a>
                 <a class="mdl-navigation__link" href="list.html">List of planned locations</a>
+                <a class="mdl-navigation__link" href="login.html">log out<a>
             </nav>
         </div>
         <main class="mdl-layout__content">
@@ -49,6 +50,7 @@
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--12-col">
                         <a class="mdl-navigation__link" href="planning.html">
+                            <div id="welcomeUser">Welcome</div>
                         <button class="mdl-button mdl-js-button mdl-button--raised">Plan
                             location</button>
                         </a>
@@ -58,6 +60,6 @@
             </div>
         </main>
     </div>
+    <script src="login.js"></script>
 </body>
-
 </html>

@@ -12,6 +12,13 @@ if (checkLSData(SAVED_LOCATIONS_KEY)) {
     savedLocation.fromData(data);
 }
 
+let displayedUsername1 = document.getElementById("usernameDisplay1");
+function displayUsername1() {
+    let userIndex = localStorage.getItem(USER_INDEX_KEY);
+    let username = userList.getUser(userIndex).username
+    displayedUsername1.innerHTML = `<strong>You are currently logged in as ${username}</strong>`
+}
+
 map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
@@ -70,7 +77,7 @@ function displayTable() {
           </tr> `;
     for (let i = 0; i < plannedLocations.length; i++) {
         itemTable += "<tr>";
-        itemTable += `<td>${i+1}</td>
+        itemTable += `<td>${i + 1}</td>
               <td>${plannedLocations[i]._name}</td>
               <td> <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick=deletePOI(${i})>  <i class="material-icons">delete</i> </button>
                </td>
@@ -144,7 +151,7 @@ function confirmSaveVacation() {
     let vacationDateRef = document.getElementById("vacationDate");
     let vacationDate = vacationDateRef.value;
     console.log(vacationDate)
-        // vacation.vacationDate = vacationDate;
+    // vacation.vacationDate = vacationDate;
     if (vacationDate == "") {
         alert('date must be filled in')
         return

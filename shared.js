@@ -9,11 +9,12 @@ const USER_INDEX_KEY = "selectedUserIndex";
 
 //Class for all the points saved for the location
 class Point {
-    constructor(longitude = '', latitude = '', name = '', date = '') {
+    constructor(longitude = '', latitude = '', name = '', date = '',status='') {
         this._name = name;
         this._longitude = longitude;
         this._latitude = latitude;
         this._date = date;
+        this._status=status;
 
     }
     get name() {
@@ -26,7 +27,10 @@ class Point {
         return this._latitude;
     }
     get date() {
-        return this._date
+        return this._date;
+    }
+    get status(){
+        return this._status;
     }
     set name(name) {
         this._name = name;
@@ -40,12 +44,16 @@ class Point {
     set date(newDate) {
         this._date = newDate;
     }
+    set status(newStatus){
+        this._status=newStatus;
+    }
 
     fromData(data) {
         this._name = data.name;
         this._longitude = data.longitude;
         this._latitude = data.latitude;
         this._date = data.date;
+        this._status=data.status;
     }
 }
 

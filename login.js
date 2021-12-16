@@ -101,3 +101,12 @@ function logIn() {
       let username = userList.getUser(userIndex)._username
       welcomeText.innerHTML = `<strong>Welcome, ${username}</strong>`
   }
+
+  function logOut() {
+    if (confirm("Are you sure you want to log out?")) {
+      // Runs if user clicks 'OK'
+      updateLocalStorage(USER_INDEX_KEY, 0);
+      alert("Log out successful.");
+      window.location = "login.html";
+    }
+  }

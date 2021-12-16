@@ -17,13 +17,12 @@
         }
 
         .poilist {
-      padding-left: 25px;
-      overflow-y: scroll;
-      overflow-x: scroll;
-      height: 265px;
-      width: 600px
-    }
-
+            padding-left: 25px;
+            overflow-y: scroll;
+            overflow-x: scroll;
+            height: 265px;
+            width: 600px
+        }
     </style>
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
@@ -41,23 +40,22 @@
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet" />
     <style>
         #map {
-            height: 450px;
-            width: 450px
+            height: 400px;
+            width: 400px
         }
     </style>
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="favicon2.ico" />
-    <title>schedule-tera
-    </title>
+    <title>schedule-tera</title>
 
 </head>
 
-<body>
+<body onload="displayUsername1()">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <span>
-          <img src="logo2.png" width="50" height="50"></span>
+                    <img src="logo2.png" width="50" height="50"></span>
                 <strong><i> schedule-tera</i></strong>
                 <div class="mdl-layout-spacer"></div>
             </div>
@@ -73,19 +71,20 @@
         <main class="mdl-layout__content">
             <div class="page-content">
                 <!--content -->
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--4-col">
-                    </div>
-                    <div class="mdl-cell mdl-cell--4-col">
-                        <div>
-                            <input type="text" id="searchAddress" placeholder="Search for a POI">
-                            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="search()">
-                <i class="material-icons">search</i>
-              </button>
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" onclick="newPOI2()">
-                <i class="material-icons">add</i>
-              </button>
-                        </div>
+                <div class="mdl-cell mdl-cell--4-col">
+                    <h5 id="usernameDisplay1"></h5>
+                    <br>
+                    <div>
+                        <input type="text" id="searchAddress" placeholder="Search for a POI">
+                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
+                            onclick="search()">
+                            <i class="material-icons">search</i>
+                        </button>
+                        <button
+                            class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+                            onclick="newPOI2()">
+                            <i class="material-icons">add</i>
+                        </button>
                     </div>
                     <br>
                     <div id="map"></div>
@@ -95,8 +94,12 @@
                         </ul>
 
 
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="saveVacation()">Confirm and save</button>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style=background-color:red onclick="cancelPlan()">Cancel </button>
+                        <button
+                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                            onclick="saveVacation()">Confirm and save</button>
+                        <button
+                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                            style=background-color:red onclick="cancelPlan()">Cancel </button>
                     </div>
 
                     <!--dialog to enter name and date-->
@@ -105,8 +108,9 @@
                         <div class="mdl-dialog__content">
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--12-col">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
-                                        <input class="mdl-textfield__input" type="date" id="vacationDate" required>
+                                    <div
+                                        class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
+                                        <input class="mdl-textfield__input" type="date" id="vacationDate" required >
                                         <label class="mdl-textfield__label" for="newPOIIndex">date:</label>
                                     </div>
                                 </div>
@@ -114,11 +118,11 @@
                         </div>
                         <div class="mdl-dialog__actions">
                             <button type="button" class="mdl-button" onclick="confirmSaveVacation()">Save</button>
-                            <button type="button" class="mdl-button close" onclick="cancelSaveVacation()">Cancel</button>
+                            <button type="button" class="mdl-button close"
+                                onclick="cancelSaveVacation()">Cancel</button>
                         </div>
                     </dialog>
                     <script src="planning.js"></script>
-
                 </div>
             </div>
     </div>

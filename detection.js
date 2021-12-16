@@ -15,6 +15,13 @@ function showAddress(data) {
     console.log(currentAddress)
 }
 
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, '0');
+let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+let yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
+
 function checker(position) {
     console.log(position);
     let long = position.coords.longitude;
@@ -23,6 +30,7 @@ function checker(position) {
     console.log(long)
     console.log(lat)
     let time = new Date(position.timestamp)
+    console.log(today)
 
     for (let i = 0; i < savedLocation._trip[0].length; i++) {
         let longCheck = Math.abs(long - savedLocation._trip[0][i]._longitude);
@@ -30,7 +38,7 @@ function checker(position) {
 
         checkedIn = document.getElementById(`checkin${i}`)
         let link = document.getElementById(`link${i}`)
-        if (longCheck < accuracy && latCheck < accuracy) {
+        if (longCheck < accuracy && latCheck < accuracy && today==savedLocation._trip[0][i]._date ) {
             //change here for the id shit and stuff
             //alert(`user has checked into ${savedLocation._trip[0][i].name} at ${time}`)
             checkedIn.innerHTML = `<font  color="green"> user has checked into ${savedLocation._trip[0][i]._name} at ${time} </font>`

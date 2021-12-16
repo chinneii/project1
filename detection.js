@@ -43,7 +43,7 @@ function checker(position) {
             //alert(`user has checked into ${savedLocation._trip[0][i].name} at ${time}`)
             checkedIn.innerHTML = `<font  color="green"> user has checked into ${savedLocation._trip[0][i]._name} at ${time} </font>`
             link.innerHTML = `<font color="blue"><u>https:/thisisadummylink.com/id=?1&ja124sW</u></font>`
-            savedLocation._trip[0].splice(i, 1)
+           // savedLocation._trip[0].splice(i, 1)
         }
     }
 }
